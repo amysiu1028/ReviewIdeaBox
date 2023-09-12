@@ -5,8 +5,12 @@ var saveButton = document.querySelector(".save-button");
 var firstIdea = document.querySelector(".first-idea");
 var firstIdeaParagraph = document.querySelector(".first-idea-paragraph");
 //Event Listeners
-saveButton.addEventListener("click", saveIdea, displayIdeas);
+saveButton.addEventListener("click",function(event){
+    saveIdea, 
+    displayIdeas});
+
 var ideasArray = [];
+
 function saveIdea(event){
     var ideaObject = {
         title: titleInput.value,
