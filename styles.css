@@ -1,0 +1,90 @@
+body {
+  display: flex;
+  font-family: 'Poppins', sans-serif;
+}
+
+main {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-evenly;
+  /* The justify content isn't doing anything right now. */
+  height: 100vh;
+  width: 100vw;
+}
+
+aside {
+  position: fixed; 
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 30%;
+  background-color: #1F1F3C;
+  color: #EAEAF4;
+  align-items: left;
+  justify-content: left;
+}
+
+article {
+  display: flex; 
+  background-color: white;
+  border-color: #1F1F3C;
+  border-width: 2px;
+  border-style: solid;
+}
+
+h1 {
+  font-size: 40px;
+  margin: 5%;
+}
+
+.save-button {
+  background-color: #1F1F3C;
+  color: white;
+  height: 20px;
+  width: 400px;
+}
+
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  border: none;
+  margin: 0;
+  padding: 0;
+  background-color: #A8AAD2;
+  color: #1F1F3C;
+  height: 100%;
+  width: 70%;
+}
+
+.idea-cards {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 0; 
+  padding: 0;
+  background-color: #EAEAF4;
+  color: #1F1F3C;
+  height: 100%;
+  width: 70%;
+}
+
+#title-input {
+  height: 20px;
+  width: 400px;
+  border-color: #1F1F3C;
+  border-width: 2px;
+  border-style: solid;
+}
+
+#body-input {
+  height: 40px;
+  width: 400px;
+  border-color: #1F1F3C;
+  border-width: 2px;
+  border-style: solid;
+}
