@@ -6,19 +6,19 @@ var firstIdea = document.querySelector(".first-idea");
 var firstIdeaParagraph = document.querySelector(".first-idea-paragraph");
 //Event Listeners
 saveButton.addEventListener("click",function(event){
-    saveIdea, 
-    displayIdeas});
+    event.preventDefault(),
+    saveIdea(), 
+    displayIdeas()});
 
 var ideasArray = [];
 
-function saveIdea(event){
+function saveIdea(){
     var ideaObject = {
         title: titleInput.value,
         body: bodyInput.value,
         id: Date.now()
     }
     ideasArray.push(ideaObject);
-    event.preventDefault();
     return ideasArray;
 }
 //create a new function that iterates through the ideasArray and createElement to display on the page
