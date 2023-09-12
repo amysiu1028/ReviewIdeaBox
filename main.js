@@ -2,8 +2,8 @@
 var titleInput = document.querySelector("#title-input");
 var bodyInput = document.querySelector("#body-input");
 var saveButton = document.querySelector(".save-button");
-var firstIdea = document.querySelector(".first-idea");
-var firstIdeaParagraph = document.querySelector(".first-idea-paragraph");
+var ideaHeader = document.querySelector("h2");
+var ideaBody = document.querySelector("p");
 //Event Listeners
 saveButton.addEventListener("click",function(event){
     event.preventDefault(),
@@ -11,26 +11,30 @@ saveButton.addEventListener("click",function(event){
     displayIdeas()});
 
 var ideasArray = [];
+var newestIdea = {}
 
 function saveIdea(){
-    var ideaObject = {
+    newestIdea = {
         title: titleInput.value,
         body: bodyInput.value,
         id: Date.now()
     }
-    ideasArray.push(ideaObject);
+    ideasArray.push(newestIdea);
     return ideasArray;
 }
+
 //create a new function that iterates through the ideasArray and createElement to display on the page
     //if statement that prevents more than 3 displaying at once.
     //could also use a slice method to only display the first three.
 function displayIdeas() {
-    firstIdea.innerHTML = titleInput.value;
-    firstIdeaParagraph.innerHTML = bodyInput.value;
-    var newArticle = document.createElement('article');
-    for (var i = 0; i < ideasArray.length; i++) {
-    }
+    ideaHeader.innerHTML = titleInput.value;
+    ideaBody.innerHTML = bodyInput.value;
+    // for (var i = 0; i < ideasArray.length; i++) {
+    //   if
+    // }
 }
+
+
 
 
 
