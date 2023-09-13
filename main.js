@@ -35,12 +35,24 @@ function displayIdeas() {
     var newIdeaArticle = document.createElement('article');
     newIdeaArticle.classList.add('article');
     ideaCardsParentElement.appendChild(newIdeaArticle);
+    var newButtonWrapper = document.createElement('div');
+    newButtonWrapper.classList.add('button-wrapper');
+    var newTextContainer = document.createElement('div');
+    newTextContainer.classList.add('text-container');
+    newIdeaArticle.appendChild(newTextContainer);
+    newIdeaArticle.appendChild(newButtonWrapper);
+    var newFavButton = document.createElement('button');
+    newFavButton.classList.add('favorite-button');
+    newDelButton.classList.add('delete-button');
+    var newDelButton = document.createElement('button');
     var newIdeaHeading = document.createElement('h2');
     var newIdeaParagraph = document.createElement('p');
     newIdeaHeading.textContent = newestIdea.title;
     newIdeaParagraph.textContent = newestIdea.body;
-    newIdeaArticle.appendChild(newIdeaHeading);
-    newIdeaArticle.appendChild(newIdeaParagraph);
+    newTextContainer.appendChild(newIdeaHeading);
+    newTextContainer.appendChild(newIdeaParagraph);
+    newButtonWrapper.appendChild(newDelButton);
+    newButtonWrapper.appendChild(newFavButton);
   }
 
 // function disableSaveButton(){
