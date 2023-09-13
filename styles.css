@@ -1,6 +1,7 @@
 body {
   display: flex;
   font-family: 'Poppins', sans-serif;
+  margin: 0px;
 }
 
 main {
@@ -64,6 +65,7 @@ h1 {
   color: white;
   height: 80px;
   font-size: 35px;
+  cursor: pointer; 
 }
 
 .labels {
@@ -101,7 +103,7 @@ h1 {
   width: 71%;
 }
 
-.show-idea-button {
+.show-starred-ideas {
   margin: 20px;
   border: none;
   height: 85px;
@@ -110,4 +112,5 @@ h1 {
   font-weight: bold;
   background-color: #A8AAD2;
   color: #1F1F3C;
+  cursor: pointer; 
 }
