@@ -47,6 +47,14 @@ function saveIdea(){
 }
 }
 
+function enableSaveButton(){
+    if (!titleInput.value === "" && !bodyInput.value === "") {
+        saveButton.style.backgroundColor = '#1F1F3C';
+        saveButton.disabled = false;
+        saveButton.style.cursor = pointer;
+    }
+}
+
 // function disableSaveButton(){
 // // write in saveButton.disabled = false later to enable the saveButton again
 //   if (titleInput.value = "" ||bodyInput.value = "") {
