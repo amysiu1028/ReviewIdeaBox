@@ -114,3 +114,15 @@ h1 {
   color: #1F1F3C;
   cursor: pointer; 
 }
+
+.favorite-button {
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
+}
+
+.delete-button { 
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
+}
