@@ -44,6 +44,9 @@ h1 {
 }
 
 .save-button {
+  display: flex;
+  align-items: left;
+  text-align: center;
   background-color: #1F1F3C;
   color: white;
   height: 20px;
@@ -61,7 +64,31 @@ h1 {
   background-color: #A8AAD2;
   color: #1F1F3C;
   height: 100%;
-  width: 70%;
+  width: 71%;
+}
+
+.labels {
+  margin: 10px;
+  font-size: 30px;
+}
+
+.input-boxes {
+  display: flex;
+  align-items: center;
+  margin: 10px;
+  height: 40px;
+  width: 800px;
+  border-color: #1F1F3C;
+  border-width: 5px;
+  border-style: solid;
+}
+
+#title-input {
+  height: 45px;
+}
+
+#body-input {
+  height: 80px;
 }
 
 .idea-cards {
@@ -73,21 +100,5 @@ h1 {
   background-color: #EAEAF4;
   color: #1F1F3C;
   height: 100%;
-  width: 70%;
-}
-
-#title-input {
-  height: 20px;
-  width: 400px;
-  border-color: #1F1F3C;
-  border-width: 2px;
-  border-style: solid;
-}
-
-#body-input {
-  height: 40px;
-  width: 400px;
-  border-color: #1F1F3C;
-  border-width: 2px;
-  border-style: solid;
+  width: 71%;
 }
