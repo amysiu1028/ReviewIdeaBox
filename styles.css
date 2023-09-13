@@ -10,6 +10,7 @@ main {
   flex-direction: column;
   align-items: flex-end;
   justify-content: space-evenly;
+  /* The justify content isn't doing anything right now. */
   height: 100vh;
   width: 100vw;
 }
@@ -46,12 +47,10 @@ h1 {
   display: flex;
   align-items: left;
   text-align: center;
-  font-size: 30px;
-  font-weight: bold;
   background-color: #1F1F3C;
   color: white;
-  height: 70px;
-  width: 800px;
+  height: 20px;
+  width: 400px;
 }
 
 .input-wrapper {
@@ -64,7 +63,7 @@ h1 {
   padding: 0;
   background-color: #A8AAD2;
   color: #1F1F3C;
-  height: 100vh;
+  height: 100%;
   width: 71%;
 }
 
@@ -103,4 +102,3 @@ h1 {
   height: 100%;
   width: 71%;
 }
-
