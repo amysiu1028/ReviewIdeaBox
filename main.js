@@ -42,17 +42,17 @@ function displayIdeas() {
     newIdeaArticle.appendChild(newTextContainer);
     newIdeaArticle.appendChild(newButtonWrapper);
     var newFavButton = document.createElement('button');
-    newFavButton.classList.add('favorite-button');
-    newDelButton.classList.add('delete-button');
+    // newFavButton.classList.add('favorite-button');
+    // newDelButton.classList.add('delete-button');
     var newDelButton = document.createElement('button');
     var newIdeaHeading = document.createElement('h2');
     var newIdeaParagraph = document.createElement('p');
     newIdeaHeading.textContent = newestIdea.title;
     newIdeaParagraph.textContent = newestIdea.body;
-    newTextContainer.appendChild(newIdeaHeading);
-    newTextContainer.appendChild(newIdeaParagraph);
     newButtonWrapper.appendChild(newDelButton);
     newButtonWrapper.appendChild(newFavButton);
+    newTextContainer.appendChild(newIdeaHeading);
+    newTextContainer.appendChild(newIdeaParagraph);
   }
 
 // function disableSaveButton(){

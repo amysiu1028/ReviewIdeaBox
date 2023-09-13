@@ -94,6 +94,7 @@ h1 {
 .idea-cards {
   display: flex;
   flex-direction: row;
+  align-items: center;
   justify-content: space-around;
   margin: 0; 
   padding: 0;
@@ -101,4 +102,30 @@ h1 {
   color: #1F1F3C;
   height: 100%;
   width: 71%;
+}
+
+.article {
+  display: flex;
+  flex-direction: column-reverse;
+  height: 250px;
+  width: 250px;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.text-container {
+  display: flex;
+  background-color: white;
+  align-items: ;
+  justify-content: space-around;
+  text-wrap: wrap;
+}
+
+.button-wrapper {
+  background-color: #1F1F3C;
+  height: 15%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
 }
