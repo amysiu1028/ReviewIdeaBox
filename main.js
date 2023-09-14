@@ -4,12 +4,16 @@ var titleInput = document.querySelector("#titleInput");
 var bodyInput = document.querySelector("#bodyInput");
 var saveButton = document.querySelector(".save-button");
 var ideaCardSection = document.querySelector(".idea-cards")
+var favoriteButton = document.querySelectorAll(".favorite-button");
+var deleteButton = document.querySelectorAll(".delete-button");
+var buttonWrapper = document.querySelector(".button-wrapper");
+// var activeStarImage = document.querySelector(".favorite-button-active")
 
 //Event Listeners
-
-titleInput.addEventListener("input", saveButtonToggle)
-bodyInput.addEventListener("input", saveButtonToggle)
-saveButton.addEventListener("mouseover", saveButtonToggle)
+ideaCardSection.addEventListener("click", favorited);
+titleInput.addEventListener("input", saveButtonToggle);
+bodyInput.addEventListener("input", saveButtonToggle);
+saveButton.addEventListener("mouseover", saveButtonToggle);
 saveButton.addEventListener("click", function(event){
   event.preventDefault(),
   saveIdea(),
@@ -22,8 +26,10 @@ saveButton.addEventListener("click", function(event){
 // Event Handlers
 
 var ideasArray = [];
-var newestIdea = {}
-function saveIdea(){
+var newestIdea = {};
+var coloredFavoriteButton = `<button class="favorite-button"><img class="favorite-button-active" src=assets/star-active.svg></button>`; 
+
+function saveIdea() {
     newestIdea = {
         title: titleInput.value,
         body: bodyInput.value,
@@ -43,8 +49,8 @@ function displayIdeas() {
     ideaCardSection.innerHTML +=
     `<article class="new-idea-card" id=${ideasArray[i].title}>
       <div class="button-wrapper">
-          <button class="favorite-button">(img)</button>
-          <button class="delete-button">(img)</button>
+          <button class="favorite-button"><img class="favorite-button-active" src=assets/star.svg></button>
+          <button class="delete-button"><img class="delete-button-active" src=assets/delete.svg></button>
       </div>
       <section class="text-container">
           <h2 class="card-title">${ideasArray[i].title}</h2>
@@ -53,14 +59,27 @@ function displayIdeas() {
     </article>
     `
   }
-}
+};
 
-function saveButtonToggle(){
+
+function saveButtonToggle() {
   if (titleInput.value !== "" && bodyInput.value !== "") {
-    saveButton.classList.remove("disabled")
+    saveButton.classList.remove("disabled");
     saveButton.disabled = false;
   } else {
     saveButton.disabled = true;
     saveButton.classList.add("disabled");
   }
-}
+};
+
+function favorited(event) {
+  if (event.target.classList.contains("favorite-button")) {
+    var userFavoritedButton = event.target.querySelector(".favorite-button-active");
+    if (userFavoritedButton.src.endsWith("star.svg")) {
+      userFavoritedButton.src = "assets/star-active.svg";
+    } else if (userFavoritedButton.src.endsWith("star-active.svg")) {
+      userFavoritedButton.src = "assets/star.svg";
+    }
+  }
+};
+
