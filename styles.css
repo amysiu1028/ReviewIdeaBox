@@ -114,6 +114,22 @@ h1 {
 #bodyInput {
   height: 80px;
 }
+.title-input-container{
+  display: flex;
+  justify-content: flex-start;
+  align-items: baseline;
+  gap: .75vw;
+  padding-bottom: 4vh;
+  margin-left: .9vw;
+}
+
+.body-input-container{
+  display: flex;
+  justify-content: flex-start;
+  align-items: baseline;
+  gap: .75vw;
+  padding-bottom: 2vh;
+}
 
 .favorite-button {
   height: 30px;
