@@ -3,19 +3,20 @@ var titleInput = document.querySelector("#title-input");
 var bodyInput = document.querySelector("#body-input");
 var saveButton = document.querySelector(".save-button");
 var ideaCardSection = document.querySelector(".idea-cards")
+
 //Event Listeners
 titleInput.addEventListener("input", enableSaveButton)
 bodyInput.addEventListener("input", enableSaveButton)
+saveButton.addEventListener("mouseover", disableSaveButton, enableSaveButton)
 saveButton.addEventListener("click", function(event){
-    event.preventDefault(),
+  event.preventDefault(),
   saveIdea(),
   displayIdeas(),
   titleInput.value = "",
-  bodyInput.value = "",
-  disableSaveButton
+  bodyInput.value = ""
   });
 
-
+// Event Handlers
 var ideasArray = [];
 var newestIdea = {}
 
@@ -29,38 +30,33 @@ function saveIdea(){
     return ideasArray;
 }
 
-  function displayIdeas() {
-    ideaCardSection.innerHTML = "";
-    for (var i = 0; i < ideasArray.length; i++){
-    ideaCardSection.innerHTML +=
-    `<article class="new-idea-card">
-        <div class="button-wrapper">
-            <button class="favorite-button">(img)</button>
-            <button class="delete-button">(img)</button>
-        </div>
-        <section class="text-container">
-            <h2 class="card-title">${ideasArray[i].title}</h2>
-            <p class="card-body">${ideasArray[i].body}</p>
-        </section>
-    </article>
-        `
-}
+function displayIdeas() {
+  ideaCardSection.innerHTML = "";
+  for (var i = 0; i < ideasArray.length; i++){
+    ideaCardSection.innerHTML += 
+    `<article class="new-idea-card" id="${ideasArray[i].title}">
+       <div class="button-wrapper">
+         <button class="favorite-button">(img)</button>
+         <button class="delete-button">(img)</button>
+       </div>
+       <section class="text-container">
+         <h2 class="card-title">${ideasArray[i].title}</h2>
+         <p class="card-body">${ideasArray[i].body}</p>
+       </section>
+     </article>
+    `
+  }
 }
 
 function enableSaveButton(){
-    if (!titleInput.value === "" && !bodyInput.value === "") {
-        saveButton.style.backgroundColor = '#1F1F3C';
-        saveButton.disabled = false;
-        saveButton.style.cursor = pointer;
+  if (titleInput.value !== "" && bodyInput.value !== "") {
+     saveButton.classList.remove("disabled") 
+      saveButton.disabled = false;
     }
 }
 
-// function disableSaveButton(){
-// // write in saveButton.disabled = false later to enable the saveButton again
-//   if (titleInput.value = "" ||bodyInput.value = "") {
-//     saveButton.disabled = true;
-//     saveButton.style.backgroundColor = "#EAEAF4";
-//   // add or remove classlist to change cursor icon
-//   }
-// }
-
+function disableSaveButton(){
+  if (titleInput.value.length === 0 && bodyInput.value.length === 0){
+      saveButton.classList.add("disabled")
+  }
+}
