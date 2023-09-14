@@ -9,7 +9,7 @@ titleInput.addEventListener("input", enableSaveButton)
 bodyInput.addEventListener("input", enableSaveButton)
 saveButton.addEventListener("mouseover", disableSaveButton, enableSaveButton)
 saveButton.addEventListener("click", function(event){
-    event.preventDefault(),
+  event.preventDefault(),
   saveIdea(),
   displayIdeas(),
   titleInput.value = "",
@@ -30,24 +30,20 @@ function saveIdea(){
     return ideasArray;
 }
 
-//create a new function that iterates through the ideasArray and createElement to display on the page
-    //if statement that prevents more than 3 displaying at once.
-    //could also use a slice method to only display the first three.
-
 function displayIdeas() {
   ideaCardSection.innerHTML = "";
   for (var i = 0; i < ideasArray.length; i++){
     ideaCardSection.innerHTML += 
-    `<article class="new-idea-card" id=${ideasArray[i].title}>
-      <div class="button-wrapper">
-          <button class="favorite-button">(img)</button>
-          <button class="delete-button">(img)</button>
-      </div>
-      <section class="text-container">
-          <h2 class="card-title">${ideasArray[i].title}</h2>
-          <p class="card-body">${ideasArray[i].body}</p>
-      </section>
-    </article>
+    `<article class="new-idea-card" id="${ideasArray[i].title}">
+       <div class="button-wrapper">
+         <button class="favorite-button">(img)</button>
+         <button class="delete-button">(img)</button>
+       </div>
+       <section class="text-container">
+         <h2 class="card-title">${ideasArray[i].title}</h2>
+         <p class="card-body">${ideasArray[i].body}</p>
+       </section>
+     </article>
     `
   }
 }
@@ -56,9 +52,7 @@ function enableSaveButton(){
   if (titleInput.value !== "" && bodyInput.value !== "") {
      saveButton.classList.remove("disabled") 
       saveButton.disabled = false;
-
-     
-  }
+    }
 }
 
 function disableSaveButton(){
