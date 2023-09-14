@@ -43,8 +43,8 @@ function displayIdeas() {
     ideaCardSection.innerHTML +=
     `<article class="new-idea-card" id=${ideasArray[i].title}>
       <div class="button-wrapper">
-          <button class="favorite-button">(img)</button>
-          <button class="delete-button">(img)</button>
+          <button class="favorite-button"><img class="favorite-button-active" src=assets/star.svg></button>
+          <button class="delete-button"><img class="delete-button-active" src=assets/delete.svg></button>
       </div>
       <section class="text-container">
           <h2 class="card-title">${ideasArray[i].title}</h2>
