@@ -73,7 +73,11 @@ h1 {
   height: 100%;
   width: 75%;
 }
-
+.form{
+  display:flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
 .idea-cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -101,17 +105,36 @@ h1 {
   background-color: #1F1F3C;
   color: white;
   height: 80px;
+  width: 810px;
   font-size: 35px;
   cursor: pointer;
   border-width: 0px;
+  display:flex;
+  justify-content: center;
 }
 
-#title-input {
+#titleInput {
   height: 45px;
 }
 
-#body-input {
+#bodyInput {
   height: 80px;
+}
+.title-input-container{
+  display: flex;
+  justify-content: flex-start;
+  align-items: baseline;
+  gap: .75vw;
+  padding-bottom: 4vh;
+  margin-left: .9vw;
+}
+
+.body-input-container{
+  display: flex;
+  justify-content: flex-start;
+  align-items: baseline;
+  gap: .75vw;
+  padding-bottom: 2vh;
 }
 
 .favorite-button {

@@ -1,7 +1,7 @@
 //Query Selectors
 
-var titleInput = document.querySelector("#title-input");
-var bodyInput = document.querySelector("#body-input");
+var titleInput = document.querySelector("#titleInput");
+var bodyInput = document.querySelector("#bodyInput");
 var saveButton = document.querySelector(".save-button");
 var ideaCardSection = document.querySelector(".idea-cards")
 
