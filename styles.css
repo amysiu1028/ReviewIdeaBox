@@ -76,8 +76,7 @@ h1 {
 
 .idea-cards {
   display: grid;
-  grid-template-columns: 
-  flex-direction: row;
+  grid-template-columns: repeat(3, 1fr);
   background-color: #EAEAF4;
   overflow: scroll;
 }
