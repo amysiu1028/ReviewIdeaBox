@@ -73,7 +73,11 @@ h1 {
   height: 100%;
   width: 75%;
 }
-
+.form{
+  display:flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
 .idea-cards {
   display: grid;
   grid-template-columns: 
@@ -102,9 +106,12 @@ h1 {
   background-color: #1F1F3C;
   color: white;
   height: 80px;
+  width: 810px;
   font-size: 35px;
   cursor: pointer;
   border-width: 0px;
+  display:flex;
+  justify-content: center;
 }
 
 #titleInput {
