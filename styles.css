@@ -20,7 +20,7 @@ aside {
   top: 0;
   left: 0;
   height: 100%;
-  width: 30%;
+  width: 25%;
   background-color: #1F1F3C;
   color: #EAEAF4;
   align-items: left;
@@ -35,36 +35,51 @@ article {
   border-style: solid;
 }
 
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 h1 {
-  font-size: 65px;
-  margin: 3%;
+  font-size: 80px;
+  margin: 0px;
   text-align: center;
   font-weight: bold;
 }
 
-.input-wrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
+.show-starred-ideas {
+  margin: 20px;
   border: none;
-  margin: 0;
-  padding: 0;
+  height: 85px;
+  width: 90%;
+  font-size: 35px;
+  font-weight: bold;
   background-color: #A8AAD2;
   color: #1F1F3C;
-  height: 100%;
-  width: 71%;
+  cursor: pointer;
 }
 
-.save-button {
+.input-wrapper,
+.idea-cards {
   display: flex;
-  align-items: left;
-  text-align: center;
-  background-color: #1F1F3C;
-  color: white;
-  height: 80px;
-  font-size: 35px;
-  cursor: pointer; 
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #A8AAD2;
+  margin: 0;
+  padding: 0;
+  color: #1F1F3C;
+  height: 100%;
+  width: 75%;
+}
+
+.idea-cards {
+  display: grid;
+  grid-template-columns: 
+  flex-direction: row;
+  background-color: #EAEAF4;
+  overflow: scroll;
 }
 
 .labels {
@@ -82,6 +97,16 @@ h1 {
   border-style: solid;
 }
 
+.save-button {
+  text-align: center;
+  background-color: #1F1F3C;
+  color: white;
+  height: 80px;
+  font-size: 35px;
+  cursor: pointer;
+  border-width: 0px;
+}
+
 #title-input {
   height: 45px;
 }
@@ -90,37 +115,13 @@ h1 {
   height: 80px;
 }
 
-.idea-cards {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  margin: 0;
-  padding: 0;
-  background-color: #EAEAF4;
-  color: #1F1F3C;
-  height: 100%;
-  width: 71%;
-}
-
-.show-starred-ideas {
-  margin: 20px;
-  border: none;
-  height: 85px;
-  width: 500px;
-  font-size: 35px;
-  font-weight: bold;
-  background-color: #A8AAD2;
-  color: #1F1F3C;
-  cursor: pointer; 
-}
-
 .favorite-button {
   height: 30px;
   width: 30px;
   cursor: pointer;
 }
 
-.delete-button { 
+.delete-button {
   height: 30px;
   width: 30px;
   cursor: pointer;
