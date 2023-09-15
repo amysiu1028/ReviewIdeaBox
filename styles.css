@@ -2,11 +2,12 @@ body {
   display: flex;
   font-family: 'Poppins', sans-serif;
   margin: 0px;
+  padding: 0px
 }
 
 main {
-  margin: 0;
-  padding: 0;
+  margin: 0px;
+  padding: 0px;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -31,7 +32,7 @@ article {
   display: flex;
   background-color: white;
   border-color: #1F1F3C;
-  border-width: 2px;
+  border-width: 4px;
   border-style: solid;
 }
 
@@ -86,7 +87,7 @@ h1 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   background-color: #EAEAF4;
-  overflow: scroll;
+  overflow-y: scroll;
 }
 
 .labels {
@@ -201,8 +202,9 @@ h2, p {
 }
 
 h2 {
-  margin-top: 5%;
+  margin-top: 60px;
   padding-top: 5%;
+  margin-bottom: 0px
 }
 
 p {
