@@ -2,7 +2,7 @@
 var titleInput = document.querySelector("#titleInput");
 var bodyInput = document.querySelector("#bodyInput");
 var saveButton = document.querySelector(".save-button");
-var ideaCardSection = document.querySelector(".idea-cards")
+var ideaCardSection = document.querySelector(".idea-cards");
 var buttonWrapper = document.querySelector(".button-wrapper");
 var favoriteButtonWhite = document.querySelector(".favorite-button-white");
 var favoriteButton = document.querySelector(".favorite-button");
@@ -24,6 +24,7 @@ saveButton.addEventListener("click", function(event){
   bodyInput.value = "",
   saveButtonToggle()
   });
+
 // ideaCardSection.addEventListener("click", function(event) {
 //     deleteCard(event);
   // });
@@ -72,10 +73,10 @@ function saveButtonToggle() {
   if (titleInput.value !== "" && bodyInput.value !== "") {
     saveButton.classList.remove("disabled");
     saveButton.disabled = false;
-} else {
+  } else {
     saveButton.disabled = true;
     saveButton.classList.add("disabled");
-}
+  }
 };
 
 // function deleteCard(event) {
@@ -114,9 +115,8 @@ function isOrange(event) {
       }
       event.preventDefault();
       return starredIdeas;
+    }
   }
-  }
-
 
 function displayFavoriteIdeas() {
   showStarredIdeasButton.classList.add("hidden");
