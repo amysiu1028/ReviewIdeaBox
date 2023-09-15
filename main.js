@@ -4,8 +4,8 @@ var titleInput = document.querySelector("#titleInput");
 var bodyInput = document.querySelector("#bodyInput");
 var saveButton = document.querySelector(".save-button");
 var ideaCardSection = document.querySelector(".idea-cards")
-var favoriteButton = document.querySelectorAll(".favorite-button");
-var deleteButton = document.querySelectorAll(".delete-button");
+var favoriteButton = document.querySelector(".favorite-button");
+var deleteButton = document.querySelector(".delete-button");
 var buttonWrapper = document.querySelector(".button-wrapper");
 // var activeStarImage = document.querySelector(".favorite-button-active")
 
@@ -21,6 +21,10 @@ saveButton.addEventListener("click", function(event){
   titleInput.value = "",
   bodyInput.value = "",
   saveButtonToggle()
+  });
+deleteButton.addEventListener("click", function(event) {
+    deleteCard(event);
+    displayIdeas()
   });
 
 // Event Handlers
@@ -82,4 +86,30 @@ function favorited(event) {
     }
   }
 };
+
+function deleteIdea() {
+    var currentIdeaCard = event.target.closest('.idea-card');
+    ideaCardsGrid.removeChild(currentIdeaCard);
+    for (var i = 0; i < list.length; i++) {
+      if (+currentIdeaCard.dataset.id === list[i].id) {
+        var deletedCard = list[i];
+        list.splice(i, 1);
+        deletedCard.deleteFromStorage(list);
+      }
+    }
+  };
+
+
+
+
+
+function deleteCard(event) {
+  var cardToDelete = event.target.id
+  for (var i = 0; i < ideasArray.length; i++) {
+    if (ideasArray[i].id === cardToDelete.id) {
+      ideasArray.splice(i, 1);
+    }
+  } cardToDelete.remove();
+}
+
 
