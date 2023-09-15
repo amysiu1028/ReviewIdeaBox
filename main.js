@@ -1,13 +1,12 @@
 //Query Selectors
-
 var titleInput = document.querySelector("#titleInput");
 var bodyInput = document.querySelector("#bodyInput");
 var saveButton = document.querySelector(".save-button");
 var ideaCardSection = document.querySelector(".idea-cards")
-var favoriteButton = document.querySelectorAll(".favorite-button");
 var deleteButton = document.querySelectorAll(".delete-button");
 var buttonWrapper = document.querySelector(".button-wrapper");
-// var activeStarImage = document.querySelector(".favorite-button-active")
+var favoriteButtonWhite = document.querySelector(".favorite-button-white");
+// var favoriteButtonOrange = document.querySelector(".favorite-button-orange");
 
 //Event Listeners
 ideaCardSection.addEventListener("click", favorited);
@@ -27,29 +26,29 @@ saveButton.addEventListener("click", function(event){
 
 var ideasArray = [];
 var newestIdea = {};
-var coloredFavoriteButton = `<button class="favorite-button"><img class="favorite-button-active" src=assets/star-active.svg></button>`; 
+var starredIdeas = [];
+var userFavoritedButton;
 
 function saveIdea() {
     newestIdea = {
         title: titleInput.value,
         body: bodyInput.value,
-        id: Date.now()
+        id: Date.now(),
+        isOrange: false
     }
     ideasArray.push(newestIdea);
     return ideasArray;
 }
 
-//create a new function that iterates through the ideasArray and createElement to display on the page
-    //if statement that prevents more than 3 displaying at once.
-    //could also use a slice method to only display the first three.
-
 function displayIdeas() {
   ideaCardSection.innerHTML = "";
   for (var i = 0; i < ideasArray.length; i++){
     ideaCardSection.innerHTML +=
-    `<article class="new-idea-card" id=${ideasArray[i].title}>
+    `<article class="new-idea-card">
       <div class="button-wrapper">
-          <button class="favorite-button"><img class="favorite-button-active" src=assets/star.svg></button>
+          <button class="favorite-button">
+            <img class="favorite-button-white" id="${ideasArray[i].title}" src=assets/star.svg>
+          </button>
           <button class="delete-button"><img class="delete-button-active" src=assets/delete.svg></button>
       </div>
       <section class="text-container">
@@ -60,7 +59,6 @@ function displayIdeas() {
     `
   }
 };
-
 
 function saveButtonToggle() {
   if (titleInput.value !== "" && bodyInput.value !== "") {
@@ -74,12 +72,30 @@ function saveButtonToggle() {
 
 function favorited(event) {
   if (event.target.classList.contains("favorite-button")) {
-    var userFavoritedButton = event.target.querySelector(".favorite-button-active");
+    userFavoritedButton = event.target.querySelector(".favorite-button-white");
     if (userFavoritedButton.src.endsWith("star.svg")) {
       userFavoritedButton.src = "assets/star-active.svg";
-    } else if (userFavoritedButton.src.endsWith("star-active.svg")) {
-      userFavoritedButton.src = "assets/star.svg";
-    }
+     } else if (userFavoritedButton.src.endsWith("star-active.svg")) {
+       userFavoritedButton.src = "assets/star.svg";
+     }
+   }
+   isOrange(event);
+   event.preventDefault();
+ };
+ 
+function isOrange(event) {
+  for (var i = 0; i < ideasArray.length; i++) {
+    if (ideasArray[i].title === event.target.id && ideasArray[i].isOrange === false) {
+        ideasArray[i].isOrange = true; 
+        starredIdeas.push(ideasArray[i]);
+        // console.log(starredIdeas)
+      } else {
+        ideasArray[i].isOrange = false;
+        starredIdeas.splice()
+      }
   }
-};
+  event.preventDefault();
+  return starredIdeas;
+  }
+
 
