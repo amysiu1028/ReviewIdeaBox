@@ -22,9 +22,8 @@ saveButton.addEventListener("click", function(event){
   bodyInput.value = "",
   saveButtonToggle()
   });
-deleteButton.addEventListener("click", function(event) {
+ideaCardSection.addEventListener("click", function(event) {
     deleteCard(event);
-    displayIdeas()
   });
 
 // Event Handlers
@@ -76,15 +75,15 @@ function saveButtonToggle() {
 };
 
 function deleteCard(event) {
-  var cardToDelete = event.target.id
-  for (var i = 0; i < ideasArray.length; i++) {
-    if (ideasArray[i].id === cardToDelete.id) {
-      ideasArray.splice(i, 1);
+    for (var i = 0; i < ideasArray.length; i++) {
+      if (ideasArray[i].title === event.target.id) {
+        console.log(ideasArray[i].title, "IdeaCard")
+        ideasArray.splice(i, 1);
+        console.log(ideasArray, "updated ideas array")
+      }
     }
-  } cardToDelete.remove();
-  ideaCardSection.removeChild(cardToDelete)
-}
-//may need to revisit reverting to interpolating the title of the card and using the closest method if this id thing doesn't work
+    displayIdeas();
+  }
 
 function favorited(event) {
   if (event.target.classList.contains("favorite-button")) {
