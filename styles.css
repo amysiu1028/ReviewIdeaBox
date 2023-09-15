@@ -48,6 +48,7 @@ h1 {
   font-weight: bold;
 }
 
+.show-all-ideas,
 .show-starred-ideas {
   margin: 20px;
   border: none;
@@ -80,6 +81,7 @@ h1 {
   align-items: flex-end;
 }
 
+.favorite-ideas-section,
 .idea-cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -205,4 +207,8 @@ h2 {
 
 p {
   margin-bottom: 5%;
+}
+
+.hidden {
+  display: none;
 }
