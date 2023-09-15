@@ -43,10 +43,6 @@ function saveIdea() {
     return ideasArray;
 }
 
-//create a new function that iterates through the ideasArray and createElement to display on the page
-    //if statement that prevents more than 3 displaying at once.
-    //could also use a slice method to only display the first three.
-
 function displayIdeas() {
   ideaCardSection.innerHTML = "";
   for (var i = 0; i < ideasArray.length; i++){
@@ -65,16 +61,26 @@ function displayIdeas() {
   }
 };
 
-
 function saveButtonToggle() {
   if (titleInput.value !== "" && bodyInput.value !== "") {
     saveButton.classList.remove("disabled");
     saveButton.disabled = false;
-  } else {
+} else {
     saveButton.disabled = true;
     saveButton.classList.add("disabled");
-  }
+}
 };
+
+function deleteCard(event) {
+  var cardToDelete = event.target.id
+  for (var i = 0; i < ideasArray.length; i++) {
+    if (ideasArray[i].id === cardToDelete.id) {
+      ideasArray.splice(i, 1);
+    }
+  } cardToDelete.remove();
+  ideaCardSection.removeChild(cardToDelete)
+}
+//may need to revisit reverting to interpolating the title of the card and using the closest method if this id thing doesn't work
 
 function favorited(event) {
   if (event.target.classList.contains("favorite-button")) {
@@ -86,30 +92,5 @@ function favorited(event) {
     }
   }
 };
-
-function deleteIdea() {
-    var currentIdeaCard = event.target.closest('.idea-card');
-    ideaCardsGrid.removeChild(currentIdeaCard);
-    for (var i = 0; i < list.length; i++) {
-      if (+currentIdeaCard.dataset.id === list[i].id) {
-        var deletedCard = list[i];
-        list.splice(i, 1);
-        deletedCard.deleteFromStorage(list);
-      }
-    }
-  };
-
-
-
-
-
-function deleteCard(event) {
-  var cardToDelete = event.target.id
-  for (var i = 0; i < ideasArray.length; i++) {
-    if (ideasArray[i].id === cardToDelete.id) {
-      ideasArray.splice(i, 1);
-    }
-  } cardToDelete.remove();
-}
 
 
