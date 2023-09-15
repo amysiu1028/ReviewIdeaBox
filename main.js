@@ -3,9 +3,10 @@ var titleInput = document.querySelector("#titleInput");
 var bodyInput = document.querySelector("#bodyInput");
 var saveButton = document.querySelector(".save-button");
 var ideaCardSection = document.querySelector(".idea-cards")
-var deleteButton = document.querySelectorAll(".delete-button");
 var buttonWrapper = document.querySelector(".button-wrapper");
 var favoriteButtonWhite = document.querySelector(".favorite-button-white");
+var favoriteButton = document.querySelector(".favorite-button");
+var deleteButton = document.querySelector(".delete-button");
 // var favoriteButtonOrange = document.querySelector(".favorite-button-orange");
 
 //Event Listeners
@@ -20,6 +21,10 @@ saveButton.addEventListener("click", function(event){
   titleInput.value = "",
   bodyInput.value = "",
   saveButtonToggle()
+  });
+deleteButton.addEventListener("click", function(event) {
+    deleteCard(event);
+    displayIdeas()
   });
 
 // Event Handlers
@@ -64,11 +69,22 @@ function saveButtonToggle() {
   if (titleInput.value !== "" && bodyInput.value !== "") {
     saveButton.classList.remove("disabled");
     saveButton.disabled = false;
-  } else {
+} else {
     saveButton.disabled = true;
     saveButton.classList.add("disabled");
-  }
+}
 };
+
+function deleteCard(event) {
+  var cardToDelete = event.target.id
+  for (var i = 0; i < ideasArray.length; i++) {
+    if (ideasArray[i].id === cardToDelete.id) {
+      ideasArray.splice(i, 1);
+    }
+  } cardToDelete.remove();
+  ideaCardSection.removeChild(cardToDelete)
+}
+//may need to revisit reverting to interpolating the title of the card and using the closest method if this id thing doesn't work
 
 function favorited(event) {
   if (event.target.classList.contains("favorite-button")) {
@@ -97,5 +113,6 @@ function isOrange(event) {
   event.preventDefault();
   return starredIdeas;
   }
+
 
 
