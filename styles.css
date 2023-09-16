@@ -154,12 +154,12 @@ h1 {
 }
 
 .favorite-button-or {
-    height: 45px;
-    background-image: url("assets/star-active.svg");
-    border: none;
-    background-color: #1F1F3C;
-    width: 45px;
-    cursor: pointer;
+  background-image: url("assets/star-active.svg");
+  border: none;
+  background-color: #1F1F3C;
+  height: 75px;
+  width: 75px;
+  cursor: pointer;
 }
 
 .delete-button {
