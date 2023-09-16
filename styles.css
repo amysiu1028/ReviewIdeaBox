@@ -146,20 +146,20 @@ h1 {
 }
 
 .favorite-button {
-  height: 30px;
+  height: 45px;
   background-image: url("assets/star.svg");
   border: none;
   background-color: #1F1F3C;
-  width: 30px;
+  width: 45px;
   cursor: pointer;
 }
 
 .favorite-button-or {
-    height: 30px;
+    height: 45px;
     background-image: url("assets/star-active.svg");
     border: none;
     background-color: #1F1F3C;
-    width: 30px;
+    width: 45px;
     cursor: pointer;
 }
 
@@ -167,8 +167,8 @@ h1 {
   background-image: url("assets/delete.svg");
   background-color: #1F1F3C;
   border: none;
-  height: 30px;
-  width: 30px;
+  height: 45px;
+  width: 45px;
   cursor: pointer;
 }
 
