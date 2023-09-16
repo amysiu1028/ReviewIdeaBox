@@ -110,15 +110,12 @@ function favoriteCard() {
         }
       ideasArray[i].isOrange = true;
       starredIdeas.push(ideasArray[i]);
-      // console.log(ideasArray[i].isOrange, starredIdeas, "I for loop");
       } else {
-      // console.log(ideasArray[i].isOrange, starredIdeas, "j for loop");
       for (var k = 0; k < starsArray.length; k++) {
         starsArray[k].classList.toggle("hidden");
           }
       ideasArray[i].isOrange = false;
       for (var j = 0; j < starredIdeas.length; j++) {
-        // console.log(starredIdeas)
         if (starredIdeas[j].id === ideasArray[i].id) {
           starredIdeas.splice(j, 1);
         }
