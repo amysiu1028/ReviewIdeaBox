@@ -13,7 +13,7 @@ ideaCardSection.addEventListener("click", function(event) {
   currentClick = event.target;
   currentClickContainer = event.target.closest(".stars");
   if (currentClick.classList.contains("reactive")) {
-    isOrange(currentClick)
+    favoriteCard(currentClick)
   } else {
     deleteCard(currentClick)
   }
@@ -96,7 +96,7 @@ console.log(currentClick, "currentclick")
   displayIdeas();
 }
        
-function isOrange() {
+function favoriteCard() {
   console.log(currentClick, "<this is currentclick")
   console.log(currentClick.id, "<this is currentclick.id")
   var userFavoritedButtonOr = currentClickContainer.querySelectorAll(".reactive");
