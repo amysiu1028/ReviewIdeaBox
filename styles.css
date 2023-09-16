@@ -145,11 +145,11 @@ h1 {
 }
 
 .favorite-button {
-  height: 45px;
   background-image: url("assets/star.svg");
   border: none;
   background-color: #1F1F3C;
-  width: 45px;
+  width: 75px;
+  height: 75px;
   cursor: pointer;
 }
 
