@@ -4,7 +4,6 @@ var bodyInput = document.querySelector("#bodyInput");
 var saveButton = document.querySelector(".save-button");
 var ideaCardSection = document.querySelector(".idea-cards");
 var buttonWrapper = document.querySelector(".button-wrapper");
-//var deleteButton = currentClick.querySelector(".delete-button");
 var showAllIdeasButton = document.querySelector(".show-all-ideas");
 var showStarredIdeasButton = document.querySelector(".show-starred-ideas");
 var favoriteIdeasSection = document.querySelector(".favorite-ideas-section");
@@ -13,11 +12,12 @@ var favoriteIdeasSection = document.querySelector(".favorite-ideas-section");
 ideaCardSection.addEventListener("click", function(event) {
   currentClick = event.target;
   currentClickContainer = event.target.closest(".stars");
-  if (currentClick) {
+  if (currentClickContainer.classList.contains("stars")) {
     isOrange(currentClick)
+  } else {
+    deleteCard(currentClick)
   }
 });
-
 titleInput.addEventListener("input", saveButtonToggle);
 bodyInput.addEventListener("input", saveButtonToggle);
 saveButton.addEventListener("mouseover", saveButtonToggle);
@@ -29,13 +29,6 @@ saveButton.addEventListener("click", function(event){
   bodyInput.value = "",
   saveButtonToggle()
   });
-// deleteButton.addEventListener("click", function(event) {
-//   currentClick = event.target.closest(".");
-//   if (currentClick) {
-//     deleteCard(currentClick)
-//   }
-// });
-
 showStarredIdeasButton.addEventListener("click", displayFavoriteIdeas);
 showAllIdeasButton.addEventListener("click", showAllIdeas);
 
@@ -88,27 +81,15 @@ function saveButtonToggle() {
   }
 }
 
-// function deleteCard() {
-
-//   for (var i = 0; i < ideasArray.length; i++) {
-//     if (ideasArray[i].title === currentClick.id) {
-//       ideasArray.splice(i, 1);
-//     }
-//   }
-//   displayIdeas();
-// }
-
-// function favorited() {
-
-//   // var userFavoritedButton = currentClick.querySelector(".favorite-button");
-//   // var userFavoritedButtonOr = currentClick.querySelector(".favorite-button-or");
-//         // console.log(userFavoritedButton, "favoritebutton")
-//         // console.log(userFavoritedButtonOr, "orangefav")
-//         if (currentClick.getElementBy.contains("reactive")) {
-//           currentClick.childElement.toggle("hidden");
-//           isOrange();
-//         }
-// }
+function deleteCard(currentClick) {
+console.log(currentClick, "currentclick")
+  for (var i = 0; i < ideasArray.length; i++) {
+    if (ideasArray[i].title === currentClick.id) {
+      ideasArray.splice(i, 1);
+    }
+  }
+  displayIdeas();
+}
        
 function isOrange() {
   console.log(currentClick, "<this is currentclick")
@@ -153,11 +134,8 @@ function displayFavoriteIdeas() {
     favoriteIdeasSection.innerHTML +=
     `<article class="favorite-ideas-card starred-view-card" id=${starredIdeas[i].body}>
       <div class="button-wrapper">
-        <div class="stars" id="${ideasArray[i].body}">
           <button class="favorite-button-or"></button>
           <button class="delete-button"></button>
-        </div>
-        <button class="delete-button" id="${ideasArray[i].title}"></button>
       </div>
       <section class="text-container">
         <h2 class="card-title">${starredIdeas[i].title}</h2>
