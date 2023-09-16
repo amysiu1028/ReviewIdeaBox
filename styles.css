@@ -88,6 +88,8 @@ h1 {
   grid-template-columns: repeat(3, 1fr);
   background-color: #EAEAF4;
   overflow-y: scroll;
+  justify-items: center;
+  row-gap: 10%;
 }
 
 .labels {
@@ -173,9 +175,9 @@ h1 {
   align-items: space-around;
   margin: 20%;
   flex-basis: auto;
-  width: 65%;
-  height: 50%;
-  padding-top: 0%;
+  width: 80%;
+  height: 90%;
+  margin-top: 7%
 }
 
 .text-container {
@@ -202,13 +204,15 @@ h2, p {
 }
 
 h2 {
-  margin-top: 60px;
+  margin-top: 20px;
   padding-top: 5%;
-  margin-bottom: 0px
+  margin-bottom: 0px;
+  font-size: 22px
 }
 
 p {
-  margin-bottom: 5%;
+  
+  font-size: 22px
 }
 
 .hidden {
