@@ -12,7 +12,7 @@ var favoriteIdeasSection = document.querySelector(".favorite-ideas-section");
 ideaCardSection.addEventListener("click", function(event) {
   currentClick = event.target;
   currentClickContainer = event.target.closest(".stars");
-  if (currentClickContainer.classList.contains("stars")) {
+  if (currentClick.classList.contains("reactive")) {
     isOrange(currentClick)
   } else {
     deleteCard(currentClick)
@@ -20,7 +20,7 @@ ideaCardSection.addEventListener("click", function(event) {
 });
 titleInput.addEventListener("input", saveButtonToggle);
 bodyInput.addEventListener("input", saveButtonToggle);
-saveButton.addEventListener("mouseover", saveButtonToggle);
+window.addEventListener("load", saveButtonToggle);
 saveButton.addEventListener("click", function(event){
   event.preventDefault(),
   saveIdea(),
@@ -84,6 +84,11 @@ function saveButtonToggle() {
 function deleteCard(currentClick) {
 console.log(currentClick, "currentclick")
   for (var i = 0; i < ideasArray.length; i++) {
+    for (var j = 0; j < starredIdeas.length; j++) {
+      if (starredIdeas[j].id === ideasArray[i].id) {
+          starredIdeas.splice(j, 1);
+      }
+    }
     if (ideasArray[i].title === currentClick.id) {
       ideasArray.splice(i, 1);
     }
