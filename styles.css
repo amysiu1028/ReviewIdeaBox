@@ -151,6 +151,15 @@ h1 {
   cursor: pointer;
 }
 
+.favorite-button-or {
+    height: 30px;
+    background-image: url("assets/star-active.svg");
+    border: none;
+    background-color: #1F1F3C;
+    width: 30px;
+    cursor: pointer;
+}
+
 .delete-button {
   background-image: url("assets/delete.svg");
   background-color: #1F1F3C;

@@ -10,6 +10,7 @@ var deleteButton = document.querySelector(".delete-button");
 var showAllIdeasButton = document.querySelector(".show-all-ideas");
 var showStarredIdeasButton = document.querySelector(".show-starred-ideas");
 var favoriteIdeasSection = document.querySelector(".favorite-ideas-section");
+var favoriteButtonOrange = document.querySelector(".favorite-button-or");
 
 //Event Listeners
 ideaCardSection.addEventListener("click", favorited);
@@ -36,7 +37,7 @@ showAllIdeasButton.addEventListener("click", showAllIdeas);
 var ideasArray = [];
 var newestIdea = {};
 var starredIdeas = [];
-var userFavoritedButton;
+// var userFavoritedButton;
 
 function saveIdea() {
     newestIdea = {
@@ -55,9 +56,8 @@ function displayIdeas() {
     ideaCardSection.innerHTML +=
     `<article class="new-idea-card">
       <div class="button-wrapper">
-          <button class="favorite-button">
-            <img class="favorite-button-white" id="${ideasArray[i].body}" src=assets/star.svg>
-          </button>
+          <button class="favorite-button" id=${ideasArray[i].body}></button>
+          <button class="favorite-button-or hidden" id="${ideasArray[i].body}"></button>
           <button class="delete-button" id="${ideasArray[i].title}" ><img class="delete-button-active" src=assets/delete.svg></button>
       </div>
       <section class="text-container">
@@ -89,34 +89,44 @@ function saveButtonToggle() {
 // }
 
 function favorited(event) {
-  // console.log(event.target.id, "within favorited func")
-  if (event.target.classList.contains("favorite-button")) {
-    userFavoritedButton = event.target.querySelector(".favorite-button-white");
-    if (userFavoritedButton.src.endsWith("star.svg")) {
-      userFavoritedButton.src = "assets/star-active.svg";
-     } else if (userFavoritedButton.src.endsWith("star-active.svg")) {
-       userFavoritedButton.src = "assets/star.svg";
-     }
-   }
-   isOrange(event);
-   event.preventDefault();
- };
- 
+  // for (var i = 0; i < ideasArray.length; i ++){
+  //   if (event.target.id === ideasArray[i].body){
+        var userFavoritedButton = document.querySelector(".favorite-button");
+        var userFavoritedButtonOr = document.querySelector(".favorite-button-or");
+        if (event.target.classList.contains("favorite-button")) {
+          userFavoritedButton.classList.add("hidden");
+          userFavoritedButtonOr.classList.remove("hidden");
+        } else {
+          userFavoritedButton.classList.remove("hidden");
+          userFavoritedButtonOr.classList.add("hidden");
+        }
+        isOrange(event);
+        }
+  //   }
+  // }
+
+
+
 function isOrange(event) {
-  console.log(event.target, event.target.id, "Id of event.target")
   for (var i = 0; i < ideasArray.length; i++) {
-    console.log(ideasArray[i].body, "id of current object")
     if (ideasArray[i].body === event.target.id && ideasArray[i].isOrange === false) {
-        ideasArray[i].isOrange = true; 
-        starredIdeas.push(ideasArray[i]);
-        console.log(starredIdeas)
-      } else {
-        ideasArray[i].isOrange = false;
+      ideasArray[i].isOrange = true;
+      starredIdeas.push(ideasArray[i]);
+      console.log(ideasArray[i].isOrange, starredIdeas, "I for loop");
+    } else {
+      ideasArray[i].isOrange = false;
+      for (var j = 0; j < starredIdeas.length; j++) {
+        if (starredIdeas[j] === ideasArray[i]) {
+          starredIdeas.splice(j, 1);
+          console.log(ideasArray[i].isOrange, starredIdeas, "j for loop");
+        }
       }
-      event.preventDefault();
-      return starredIdeas;
     }
   }
+  event.preventDefault();
+  return starredIdeas;
+}
+
 
 function displayFavoriteIdeas() {
   showStarredIdeasButton.classList.add("hidden");
@@ -146,3 +156,39 @@ function showAllIdeas() {
   favoriteIdeasSection.classList.add("hidden");
   ideaCardSection.classList.remove("hidden");
 }
+
+
+// function favorited(event) {
+//   var userFavoritedButton = document.querySelector(".favorite-button");
+//   var userFavoritedButtonOr = document.querySelector(".favorite-button-or");
+//   if (event.target.classList.contains("favorite-button")) {
+//     userFavoritedButton.classList.add("hidden");
+//     userFavoritedButtonOr.classList.remove("hidden");
+//   } else {
+//     userFavoritedButton.classList.remove("hidden");
+//     userFavoritedButtonOr.classList.add("hidden");
+//   }
+//   isOrange(event);
+//   }
+
+
+
+// function isOrange(event) {
+//   for (var i = 0; i < ideasArray.length; i++) {
+//     if (ideasArray[i].body === event.target.id && ideasArray[i].isOrange === false) {
+//       ideasArray[i].isOrange = true;
+//       starredIdeas.push(ideasArray[i]);
+//       // console.log(ideasArray[i].isOrange, starredIdeas, "I for loop");
+//     } else {
+//       ideasArray[i].isOrange = false;
+//       for (var j = 0; j < starredIdeas.length; j++) {
+//         if (starredIdeas[j] === ideasArray[i]) {
+//           starredIdeas.splice(j, 1);
+//           // console.log(ideasArray[i].isOrange, starredIdeas, "j for loop");
+//         }
+//       }
+//     }
+//   }
+//   event.preventDefault();
+//   return starredIdeas;
+// }
