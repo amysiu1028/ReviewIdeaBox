@@ -166,8 +166,8 @@ h1 {
   background-image: url("assets/delete.svg");
   background-color: #1F1F3C;
   border: none;
-  height: 45px;
-  width: 45px;
+  height: 80px;
+  width: 80px;
   cursor: pointer;
 }
 
@@ -201,7 +201,7 @@ h1 {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 15px;
+  padding: 0px;
 }
 
 h2, p {
