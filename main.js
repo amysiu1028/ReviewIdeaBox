@@ -4,19 +4,17 @@ var bodyInput = document.querySelector("#bodyInput");
 var saveButton = document.querySelector(".save-button");
 var ideaCardSection = document.querySelector(".idea-cards");
 var buttonWrapper = document.querySelector(".button-wrapper");
-var favoriteButtonWhite = document.querySelector(".favorite-button-white");
-var favoriteButton = document.querySelector(".favorite-button");
-var deleteButton = document.querySelector(".delete-button");
+//var deleteButton = currentClick.querySelector(".delete-button");
 var showAllIdeasButton = document.querySelector(".show-all-ideas");
 var showStarredIdeasButton = document.querySelector(".show-starred-ideas");
 var favoriteIdeasSection = document.querySelector(".favorite-ideas-section");
-var favoriteButtonOrange = document.querySelector(".favorite-button-or");
 
 //Event Listeners
 ideaCardSection.addEventListener("click", function(event) {
-  currentClick = event.target.closest(".new-idea-card");
+  currentClick = event.target;
+  currentClickContainer = event.target.closest(".stars");
   if (currentClick) {
-    favorited(currentClick)
+    isOrange(currentClick)
   }
 });
 
@@ -31,9 +29,13 @@ saveButton.addEventListener("click", function(event){
   bodyInput.value = "",
   saveButtonToggle()
   });
-// ideaCardSection.addEventListener("click", function(event) {
-//     deleteCard(event);
-  // });
+// deleteButton.addEventListener("click", function(event) {
+//   currentClick = event.target.closest(".");
+//   if (currentClick) {
+//     deleteCard(currentClick)
+//   }
+// });
+
 showStarredIdeasButton.addEventListener("click", displayFavoriteIdeas);
 showAllIdeasButton.addEventListener("click", showAllIdeas);
 
@@ -42,7 +44,7 @@ var ideasArray = [];
 var newestIdea = {};
 var starredIdeas = [];
 var currentClick;
-// var userFavoritedButton;
+var currentClickContainer;
 
 function saveIdea() {
     newestIdea = {
@@ -59,11 +61,13 @@ function displayIdeas() {
   ideaCardSection.innerHTML = "";
   for (var i = 0; i < ideasArray.length; i++){
     ideaCardSection.innerHTML +=
-    `<article class="new-idea-card" id="${ideasArray[i].body}">
-      <div class="button-wrapper">
-          <button class="favorite-button" id="${ideasArray[i].title} + white"></button>
-          <button class="favorite-button-or hidden" id="${ideasArray[i].title} + orange"></button>
-          <button class="delete-button" id="${ideasArray[i].title}" ><img class="delete-button-active" src=assets/delete.svg></button>
+    `<article class="new-idea-card">
+      <div class="button-wrapper" id="${ideasArray[i].body}">
+        <div class="stars" id="${ideasArray[i].body}">
+          <button class="favorite-button reactive" id="${ideasArray[i].title}"></button>
+          <button class="favorite-button-or hidden reactive" id="${ideasArray[i].title}"></button>
+        </div>
+          <button class="delete-button" id="${ideasArray[i].title}"></button>
       </div>
       <section class="text-container">
           <h2 class="card-title">${ideasArray[i].title}</h2>
@@ -72,7 +76,7 @@ function displayIdeas() {
     </article>
     `
   }
-};
+}
 
 function saveButtonToggle() {
   if (titleInput.value !== "" && bodyInput.value !== "") {
@@ -82,54 +86,61 @@ function saveButtonToggle() {
     saveButton.disabled = true;
     saveButton.classList.add("disabled");
   }
-};
+}
 
-// function deleteCard(event) {
+// function deleteCard() {
+
 //   for (var i = 0; i < ideasArray.length; i++) {
-//     if (ideasArray[i].title === event.target.id) {
+//     if (ideasArray[i].title === currentClick.id) {
 //       ideasArray.splice(i, 1);
 //     }
 //   }
 //   displayIdeas();
 // }
 
-function favorited() {
-  console.log(currentClick.id, "<this is current.id")
-        var userFavoritedButton = currentClick.querySelector(".favorite-button");
-        var userFavoritedButtonOr = currentClick.querySelector(".favorite-button-or");
-        console.log(userFavoritedButton, "favoritebutton")
-        console.log(userFavoritedButtonOr, "orangefav")
-        if (currentClick.classList.contains("new-idea-card")) {
-          userFavoritedButton.classList.toggle("hidden");
-          userFavoritedButtonOr.classList.toggle("hidden");
-          isOrange();
-        // } else {
-        //   userFavoritedButton.classList.remove("hidden");
-        //   userFavoritedButtonOr.classList.add("hidden");
-        }
-}
+// function favorited() {
+
+//   // var userFavoritedButton = currentClick.querySelector(".favorite-button");
+//   // var userFavoritedButtonOr = currentClick.querySelector(".favorite-button-or");
+//         // console.log(userFavoritedButton, "favoritebutton")
+//         // console.log(userFavoritedButtonOr, "orangefav")
+//         if (currentClick.getElementBy.contains("reactive")) {
+//           currentClick.childElement.toggle("hidden");
+//           isOrange();
+//         }
+// }
        
 function isOrange() {
-  console.log(currentClick.id)
+  console.log(currentClick, "<this is currentclick")
+  console.log(currentClick.id, "<this is currentclick.id")
+  var userFavoritedButtonOr = currentClickContainer.querySelectorAll(".reactive");
+  var starsArray = Array.from(userFavoritedButtonOr);
   for (var i = 0; i < ideasArray.length; i++) {
-    if (ideasArray[i].body === currentClick.id) { 
-      console.log(currentClick.id, "<this is current.id");
+    if (ideasArray[i].title === currentClick.id) {
+      console.log(userFavoritedButtonOr, "<this is current.id");
       if (ideasArray[i].isOrange === false) {
+        for (var k = 0; k < starsArray.length; k++) {
+          starsArray[k].classList.toggle("hidden");
+        }
       ideasArray[i].isOrange = true;
       starredIdeas.push(ideasArray[i]);
-      console.log(ideasArray[i].isOrange, starredIdeas, "I for loop");
-      }
-    } else {
-      console.log(ideasArray[i].isOrange, starredIdeas, "j for loop");
+      // console.log(ideasArray[i].isOrange, starredIdeas, "I for loop");
+      } else {
+      // console.log(ideasArray[i].isOrange, starredIdeas, "j for loop");
+      for (var k = 0; k < starsArray.length; k++) {
+        starsArray[k].classList.toggle("hidden");
+          }
       ideasArray[i].isOrange = false;
       for (var j = 0; j < starredIdeas.length; j++) {
+        // console.log(starredIdeas)
         if (starredIdeas[j].id === ideasArray[i].id) {
           starredIdeas.splice(j, 1);
         }
       }
+      return starredIdeas;
+      }
     }
   }
-  return starredIdeas;
 }
 
 function displayFavoriteIdeas() {
@@ -138,55 +149,28 @@ function displayFavoriteIdeas() {
   favoriteIdeasSection.classList.remove("hidden");
   ideaCardSection.classList.add("hidden");
   favoriteIdeasSection.innerHTML = "";
-  for (var i = 0; i < showStarredIdeasButton.length; i++){
+  for (var i = 0; i < starredIdeas.length; i++){
     favoriteIdeasSection.innerHTML +=
-    `<article class="favorite-ideas-card" id=${starredIdeas[i].body}>
-    <div class="button-wrapper">
-        <button class="favorite-button"></button>
-        <button class="delete-button"></button>
-    </div>
-    <section class="text-container">
+    `<article class="favorite-ideas-card starred-view-card" id=${starredIdeas[i].body}>
+      <div class="button-wrapper">
+        <div class="stars" id="${ideasArray[i].body}">
+          <button class="favorite-button-or"></button>
+          <button class="delete-button"></button>
+        </div>
+        <button class="delete-button" id="${ideasArray[i].title}"></button>
+      </div>
+      <section class="text-container">
         <h2 class="card-title">${starredIdeas[i].title}</h2>
         <p class="card-body">${starredIdeas[i].body}</p>
-    </section>
-  </article>
-  `
+      </section>
+    </article>
+    `
   }
 }
+
 function showAllIdeas() {
   showStarredIdeasButton.classList.remove("hidden");
   showAllIdeasButton.classList.add("hidden");
   favoriteIdeasSection.classList.add("hidden");
   ideaCardSection.classList.remove("hidden");
 }
-// function favorited(event) {
-//   var userFavoritedButton = document.querySelector(".favorite-button");
-//   var userFavoritedButtonOr = document.querySelector(".favorite-button-or");
-//   if (event.target.classList.contains("favorite-button")) {
-//     userFavoritedButton.classList.add("hidden");
-//     userFavoritedButtonOr.classList.remove("hidden");
-//   } else {
-//     userFavoritedButton.classList.remove("hidden");
-//     userFavoritedButtonOr.classList.add("hidden");
-//   }
-//   isOrange(event);
-//   }
-// function isOrange(event) {
-//   for (var i = 0; i < ideasArray.length; i++) {
-//     if (ideasArray[i].body === event.target.id && ideasArray[i].isOrange === false) {
-//       ideasArray[i].isOrange = true;
-//       starredIdeas.push(ideasArray[i]);
-//       // console.log(ideasArray[i].isOrange, starredIdeas, "I for loop");
-//     } else {
-//       ideasArray[i].isOrange = false;
-//       for (var j = 0; j < starredIdeas.length; j++) {
-//         if (starredIdeas[j] === ideasArray[i]) {
-//           starredIdeas.splice(j, 1);
-//           // console.log(ideasArray[i].isOrange, starredIdeas, "j for loop");
-//         }
-//       }
-//     }
-//   }
-//   event.preventDefault();
-//   return starredIdeas;
-// }

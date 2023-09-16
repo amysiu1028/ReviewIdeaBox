@@ -2,7 +2,6 @@ body {
   display: flex;
   font-family: 'Poppins', sans-serif;
   margin: 0px;
-  padding: 0px
 }
 
 main {
@@ -32,7 +31,7 @@ article {
   display: flex;
   background-color: white;
   border-color: #1F1F3C;
-  border-width: 4px;
+  border-width: 2px;
   border-style: solid;
 }
 
@@ -62,7 +61,7 @@ h1 {
   cursor: pointer;
 }
 
-.input-wrapper,
+.favorite-ideas-section, .input-wrapper,
 .idea-cards {
   display: flex;
   flex-direction: column;
@@ -116,7 +115,7 @@ h1 {
   font-size: 35px;
   cursor: pointer;
   border-width: 0px;
-  display:flex;
+  display: flex;
   justify-content: center;
 }
 
@@ -177,7 +176,7 @@ h1 {
   background-color: #EAEAF4;
 }
 
-.new-idea-card {
+.new-idea-card, .starred-view-card {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -186,7 +185,7 @@ h1 {
   flex-basis: auto;
   width: 80%;
   height: 90%;
-  margin-top: 7%
+  margin-top: 7%;
 }
 
 .text-container {
@@ -216,12 +215,12 @@ h2 {
   margin-top: 20px;
   padding-top: 5%;
   margin-bottom: 0px;
-  font-size: 22px
+  font-size: 22px;
 }
 
 p {
-  
-  font-size: 22px
+  margin-bottom: 5%;
+  font-size: 22px;
 }
 
 .hidden {
