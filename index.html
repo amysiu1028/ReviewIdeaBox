@@ -1,16 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<!--document type declaration - specifies that the document is an HTML5 document-->
+<html lang="en">  
+<!--opening HTML document tag - specifies that the document is written in English ("en").-->
   <head>
+<!-- MORE INFO ON HEAD section below
+The <head> section of an HTML document is used to contain metadata and other elements that provide
+    information about the document and control how it is processed by the browser. It doesn't display 
+    visible content on the web page but serves several important purposes: -->
+<!-- head section of the HTML - contains metadata, does not display content on the web page itself. -->
     <meta charset="UTF-8">
+<!--  specifies the character encoding of the document, which is UTF-8 -->
+<!--   "Unicode Transformation Format - 8-bit," is a widely used character 
+    encoding standard for representing text in computers and communication systems. 
+    It is designed to encode a vast range of characters and symbols from various writing 
+    systems and languages, making it a versatile and universal character encoding format. -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--  This meta tag sets the viewport properties for responsive web design. 
+    It ensures that the webpage adapts to different device widths and scales properly for mobile devices.-->
+<!--     MORE INFOR ON width-device-width and intial-scaling BELOW - RECOMMEND READING -->
+<!--    width=device-width: sets the width of the viewport (the visible area of the 
+    web page on the screen) to be equal to the width of the device. 
+initial-scale=1.0: sets initial zoom level of the web page to 1.0, which means that 
+    the web page is displayed at its natural size without any initial zooming or scaling. -->
     <title>IdeaBox</title>
+<!--  sets title of the web page, which is displayed in browser's title bar or tab.-->
     <link rel="stylesheet" href="styles.css">
+<!--  line links an external CSS (Cascading Style Sheets) file named "styles.css" 
+    to the HTML document. It's used to apply styles and layout to the web page.-->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
   </head>
   <body>
-    <aside>
+    <aside> 
+<!--  usu used for content that is tangentially related to the main content -->
       <div class="wrapper">
+<!-- divs creates containers! -->
         <h1>IdeaBox</h1>
+<!-- always start at h1 > h2 > h3 -->
         <button class="show-starred-ideas">Show Starred Ideas</button>
         <button class="show-all-ideas hidden">Show All Ideas</button>
         <!-- <input type="text" id="search-input"> -->
@@ -22,6 +47,12 @@
           <section class="title-input-container">
             <label for="titleInput" class="labels" >Title</label>
             <input type="text" id="titleInput" class="input-boxes">
+<!--  there is a <label> associated with each input field. Here's why these labels are important:-->
+<!-- labels are important bc: 
+1. essential for accesibility (provide text description of what each input field is for). so particularly valuable for users with disabilities who may be using screen readers.
+2. improve usability: provide a visual indication of the purpose of each input field. Even for users who do not rely on screen readers, having clear labels helps them understand what information should be entered.
+3. clickable labels - for attribute links label to an input. FOR EXAMPLE: when user input field says Email: [               ], lable is Email
+When a <label> is associated with an input field using the for attribute, it means that the label is explicitly linked to a specific input element on the web page. This association is established by setting the for attribute of the <label> element to the id of the corresponding input field.-->
           </section>
           <section class="body-input-container">
             <label for="bodyInput" class="labels" >Body</label>
@@ -35,5 +66,47 @@
       <section class="favorite-ideas-section hidden"></section>
     </main>
   </body>
-  <script type="text/javascript" src="main.js"></script>
+<!--   <script type="text/javascript" src="main.js"></script> -->
 </html>
+
+<!-- HEAD SECTION -->
+<!-- The `<head>` section of an HTML document is used to contain metadata and other elements that provide information about the document and control 
+how it is processed 
+y the browser. It doesn't display visible content on the web page but serves several important purposes:
+
+1. **Metadata**: The `<head>` section contains metadata elements that provide information about the document. For example:
+   - `<meta charset="UTF-8">`: Specifies the character encoding of the document.
+   - `<meta name="viewport" content="width=device-width, initial-scale=1.0">`: Configures the viewport settings for responsive web design.
+   - `<title>`: Defines the title of the web page, which is displayed in the browser's title bar or tab.
+2. **Linking External Resources**: The `<head>` section is used to link external resources to the HTML document. This includes linking to external CSS stylesheets, 
+JavaScript files, web fonts, and more. For example:
+   - `<link rel="stylesheet" href="styles.css">`: Links an external CSS file for styling the page.
+   - `<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">`: Links an external font from Google Fonts.
+3. **Script Loading**: The `<head>` section can also include `<script>` elements to load external JavaScript files or provide inline JavaScript code. For example:
+   - `<script type="text/javascript" src="main.js"></script>`: Links an external JavaScript file named "main.js" for adding interactivity to the web page.
+4. **Document Structure**: The `<head>` section can contain elements like `<base>`, which specifies a base URL for relative URLs within the document.
+5. **Metadata for Search Engines and Social Media**: It's common to include metadata for search engines and social media platforms using elements like 
+`<meta name="description">` and `<meta property="og:image">`.
+In summary, the `<head>` section is a crucial part of an HTML document for providing essential information and configuring how the document is presented and processed. 
+While it doesn't display visible content on the web page, it plays a significant role in the document's functionality and appearance. -->
+
+
+<!-- WIDTH and INITIAL SCALING!
+The content="width=device-width, initial-scale=1.0" meta tag is used in the <head> section of an HTML document and is specifically related to making web pages responsive on various devices, particularly mobile devices. Let's break down what each part of this meta tag means:
+
+width=device-width: This part of the tag sets the width of the viewport (the visible area of the web page on the screen) to be equal to the width of the device. In other words, it ensures that the web page content will be displayed at the width of the device's screen.
+
+initial-scale=1.0: This part of the tag sets the initial zoom level of the web page to 1.0, which means that the web page is displayed at its natural size without any initial zooming or scaling.
+
+Now, let's discuss the significance of choosing the right initial-scale value:
+
+initial-scale=1.0: This setting ensures that the web page is initially displayed at its natural size. It means that one CSS pixel in your web page will be equal to one device pixel on the screen. This is often the recommended setting for ensuring that your web page appears correctly and is not initially zoomed in or out on mobile devices.
+When to Choose a Different initial-scale:
+
+Zoomed-In Content: If your web page is designed to be viewed zoomed in by default (for example, a map or an image), you might choose an initial-scale value greater than 1.0 to provide users with an enlarged view.
+
+Zoomed-Out Content: Conversely, if your web page contains a lot of content, and you want to fit more content into the viewport by default, you might choose an initial-scale value less than 1.0 to make the content appear smaller initially.
+
+Design Considerations: Your choice of initial-scale may also depend on your design and user experience goals. For responsive web design, you typically start with initial-scale=1.0 to ensure that your content looks good on mobile devices. Then, you may use CSS media queries and responsive design techniques to adjust the layout and appearance of your content for different screen sizes and orientations.
+
+In most cases, initial-scale=1.0 is a good starting point, and you can fine-tune the layout and appearance of your web page for various screen sizes and devices using CSS media queries and other responsive design techniques. Ultimately, the choice of initial-scale depends on your specific design and user experience requirements. -->
